@@ -1,15 +1,20 @@
 // 1-promise.js
 
-function getFullResponseFromAPI(success) {
+// Define the function as a default export without a name
+export default function (boolean) {
+  // Return a new Promise
   return new Promise((resolve, reject) => {
-    if (success) {
-      // If success is true, resolve the promise with an object containing status 200 and body 'Success'
-      resolve({ status: 200, body: 'Success' });
+    const object = {
+      status: 200,
+      body: 'Success',
+    };
+
+    if (boolean === true) {
+      // Resolve the Promise with the object
+      resolve(object);
     } else {
-      // If success is false, reject the promise with an error object containing the specified message
-      reject(new Error('The fake API is not working currently'));
+      // Reject the Promise with an error object containing the message
+      reject(Error('The fake API is not working currently'));
     }
   });
 }
-
-export default getFullResponseFromAPI;
