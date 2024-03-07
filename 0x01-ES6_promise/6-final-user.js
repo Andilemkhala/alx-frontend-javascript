@@ -1,19 +1,25 @@
 // 6-final-user.js
 
-import signUpUser from './4-user-promise.js';
-import uploadPhoto from './5-photo-reject.js';
+// Importing signUpUser function from './4-user-promise.js' module
+import signUpUser from './4-user-promise';
+
+// Importing uploadPhoto function from './5-photo-reject.js' module
+import uploadPhoto from './5-photo-reject';
 
 // Define a function named handleProfileSignup
 export default function handleProfileSignup(firstName, lastName, fileName) {
-  // Call signUpUser and uploadPhoto functions
-  const promise1 = signUpUser(firstName, lastName);
-  const promise2 = uploadPhoto(fileName);
-
-  // Wait for all promises to settle and return an array with the status and value/error
-  return Promise.allSettled([promise1, promise2]).then((results) => {
-    return results.map((result) => ({
-      status: result.status,
-      value: result.status === 'fulfilled' ? result.value : result.reason,
-    }));
+  // Returning a Promise that resolves when all promises from signUpUser and uploadPhoto functions are settled
+  return Promise.allSettled([
+    signUpUser(firstName, lastName), // Calling signUpUser function with provided firstName and lastName
+    uploadPhoto(fileName), // Calling uploadPhoto function with provided fileName
+  ]).then((values) => { // Handling the settled promises
+    const arr = []; // Initializing an empty array to store the results
+    // Looping through the settled promises
+    for (const item of values) {
+      // Pushing an object with status and value/error of each promise to the array
+      arr.push({ status: item.status, value: item.value || item.reason });
+    }
+    // Returning the array containing the status and value/error of each Promise
+    return arr;
   });
 }

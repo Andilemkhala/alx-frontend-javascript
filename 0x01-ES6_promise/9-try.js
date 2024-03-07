@@ -10,7 +10,7 @@ export default function guardrail(mathFunction) {
     queue.push(mathFunction());
   } catch (error) {
     // If an error occurs, append the error message to the queue
-    queue.push(error.message);
+    queue.push(error.toString());
   } finally {
     // Append the message 'Guardrail was processed' to the queue
     queue.push('Guardrail was processed');
