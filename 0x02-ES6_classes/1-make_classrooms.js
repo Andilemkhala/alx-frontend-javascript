@@ -1,12 +1,4 @@
-//Implement a class named HolbertonCourse:
-
-/*Constructor attributes:
-name (String)
-length (Number)
-students (array of Strings)
-Make sure to verify the type of attributes during object creation
-Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
-Implement a getter and setter for each attribute.*/
+//1-make_classrooms.js
 import ClassRoom from './0-classroom';
 
 export default function initializeRooms() {

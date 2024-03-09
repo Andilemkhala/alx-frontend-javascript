@@ -1,14 +1,5 @@
-/*Implement a class named Currency:
-
-- Constructor attributes:
-code (String)
-name (String)
-Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
-Implement a getter and setter for each attribute.
-Implement a method named displayFullCurrency that will return the attributes in the following format name (code). 
- * */
-
-export default class HolbertonCourse{
+//2-hbtn_course.js
+export default class HolbertonCourse {
   constructor(name, length, students) {
     if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');

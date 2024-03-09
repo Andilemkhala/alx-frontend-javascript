@@ -1,8 +1,4 @@
 0x02. ES6 classes
-OOP
-JavaScript
-ES6
-
 Objectives
 How to define a Class
 How to add methods to a class
